@@ -16,7 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app01 import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    # path("admin/", admin.site.urls),
+    #  部门管理
+    path("depart/list", views.depart_list),
+    path("depart/add", views.depart_add),
+    path("depart/delete", views.depart_delete),
+    path("depart/<int:nid>/edit", views.depart_edit),
+
+    # 用户管理
+    path("user/list", views.user_list),
+    # path("user/add", views.user_add),
+    path("user/model/form/add", views.user_model_form_add),
+    path("user/<int:nid>/edit", views.user_edit),
+    path("user/<int:nid>/delete", views.user_delete),
+
 ]
